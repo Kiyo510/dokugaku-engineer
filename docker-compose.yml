@@ -28,6 +28,8 @@ services:
       - api
 
   api:
+    # M1Macの方はここをコメントアウト
+    # platform: linux/amd64
     build:
       context: .
       dockerfile: docker/api/Dockerfile
@@ -46,13 +48,13 @@ services:
       - db
 
   db:
-    image: mysql:5.7.12
+    image: mysql:8.0
     ports:
       - "3306:3306"
     env_file:
       - ./docker/db/db-variables.env
     volumes:
-      - ./docker/db/sql:/docker-entrypoint-initdb.d
+      - ./docker/db/sql:/docker-entrypoint-initdb.dd
       - ./docker/db/mysql_data:/var/lib/mysql
 
 volumes:

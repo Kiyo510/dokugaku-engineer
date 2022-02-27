@@ -4,8 +4,8 @@ WORKDIR /var/www
 
 # install package
 RUN yum update -y
-RUN yum install -y git vim sudo procps
-RUN curl -sL https://rpm.nodesource.com/setup_10.x | bash -
+RUN yum install -y git vim sudo procps make gcc-c++
+RUN curl -sL https://rpm.nodesource.com/setup_14.x | bash -
 RUN yum install -y nodejs npm
 RUN npm install -g npm
 RUN npm install -g gulp
